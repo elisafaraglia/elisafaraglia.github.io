@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elisa Faraglia</title>
+<style>
+  :root{
+    --paper:#F7F6F2;
+    --ink:#1C1C1C;
+    --muted:#5B5B5B;
+    --accent:#1F3A5F;
+    --rule:#DADDE1;
+    --rule-soft:#E7E5DF;
+    --serif: "EB Garamond", "Garamond", "Cormorant Garamond", "Georgia", serif;
+    --sans: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover{ border-bottom-color: var(--accent); }
+
+  .wrap{
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- nav ---------- */
+  nav{
+    position: sticky;
+    top: 0;
+    background: rgba(247,246,242,0.92);
+    backdrop-filter: saturate(180%) blur(6px);
+    border-bottom: 1px solid var(--rule);
+    z-index: 10;
+  }
+  nav .wrap{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    max-width: 760px;
+  }
+  nav .name{
+    font-family: var(--sans);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  nav.scrolled .name{ opacity: 1; }
+  nav .name a{ color: var(--ink); border: none; }
+  nav ul{
+    list-style:none;
+    display:flex;
+    margin:0; padding:0;
+  }
+  nav ul li + li{ margin-left: 28px; }
+  nav ul a{
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--muted);
+    border: none;
+  }
+  nav ul a:hover{ color: var(--accent); }
+
+  /* ---------- hero ---------- */
+  header.hero{
+    padding: 76px 0 48px;
+  }
+  header.hero .row{
+    display:flex;
+    align-items:flex-end;
+    justify-content: space-between;
+  }
+  header.hero .row > *:first-child{ flex: 1 1 auto; min-width: 0; margin-right: 40px; }
+  header.hero h1{
+    font-size: 44px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    margin: 0 0 6px;
+    line-height:1.1;
+  }
+  header.hero .role{
+    font-style: italic;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  header.hero .portrait{
+    width: 118px;
+    height: 118px;
+    object-fit: cover;
+    border-radius: 2px;
+    filter: grayscale(15%);
+  }
+  header.hero .rule{
+    border: none;
+    border-top: 1px solid var(--accent);
+    margin: 26px 0 18px;
+    width: 64px;
+  }
+  header.hero .contact{
+    font-family: var(--sans);
+    font-size: 13.5px;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+  header.hero .contact a{
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+  }
+  header.hero .contact .sep{
+    color: var(--rule);
+    margin: 0 8px;
+  }
+
+  /* ---------- sections ---------- */
+  section{ padding: 44px 0; }
+  section + section{ border-top: 1px solid var(--rule-soft); }
+
+  h2.section-title{
+    font-size: 13px;
+    font-family: var(--sans);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 26px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--accent);
+  }
+
+  h3.sub{
+    font-style: italic;
+    font-weight: 600;
+    font-size: 17px;
+    margin: 30px 0 12px;
+  }
+  h3.sub:first-of-type{ margin-top: 0; }
+
+  ul.entries{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  ul.entries li{
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 13px;
+    font-size: 15.5px;
+    line-height: 1.65;
+  }
+  ul.entries li::before{
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+  ul.entries .tag{
+    font-style: italic;
+    color: var(--accent);
+    margin-right: 4px;
+  }
+
+  footer{
+    padding: 40px 0 70px;
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  @media (max-width: 560px){
+    header.hero h1{ font-size: 34px; }
+    header.hero .row{ flex-direction: column-reverse; align-items: flex-start; }
+    nav ul{ gap: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="siteNav">
+  <div class="wrap">
+    <div class="name"><a href="#about">Elisa Faraglia</a></div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="cv_Faraglia_September_2026.pdf" target="_blank" rel="noopener">CV (PDF)</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header class="hero" id="about">
+    <div class="row">
+      <div>
+        <h1>Elisa Faraglia</h1>
+        <p class="role">Professor of Macroeconomics and Finance, University of Cambridge<br>
+        Fellow, <a href="http://www.kings.cam.ac.uk/" target="_blank" rel="noopener">King's College</a> · Research Fellow, <a href="http://cepr.org/" target="_blank" rel="noopener">CEPR</a></p>
+      </div>
+      <img class="portrait" src="https://lh3.googleusercontent.com/sitesv/AG8ngQUH-ODg5BWtEJz7-qEAVzcXGzIh9bJF4LAUF8CSkB6sPfNf7xS9IsS4uC2w3DISnGIkzHGxB4jWVZhgc2SSH6HfeE2l9qhYzTIMG2Hy4rom2HO6YXMjA3E3-EhK_CrqR28qG07LhfYnjZmvKeaz5sRDoNTTJgW8DXSIJO2MkORjZY1zfCX-pUI3d9fdKncaSwkaILe10rXs_d_UVzQ=w1280" alt="Elisa Faraglia">
+    </div>
+    <hr class="rule">
+    <p class="contact">ef307 [at] cam.ac.uk</p>
+  </header>
+
+  <section id="research">
+    <h2 class="section-title">Research</h2>
+
+    <h3 class="sub">Work in Progress</h3>
+    <ul class="entries">
+      <li><span class="tag">Newest —</span> "<a href="https://drive.google.com/file/d/13-bYxaiOvz2td5R2y3NXaueBFDx7KuOo/view?usp=share_link" target="_blank" rel="noopener">Adapting to Brexit: The Response of Corporate Structures to Geopolitical Uncertainty</a>," with M. Crowley, M. Domenech-Palacios, C. Giannitsarou and L. Havemeister, February 2026, CEPR DP <a href="https://cepr.org/publications/dp21312" target="_blank" rel="noopener">21312</a>.</li>
+      <li>"Debt Management with Callable Bonds: an Historical and Theoretical Perspective," with M. Ellison, L. Niermann and F. Velde, May 2025.</li>
+      <li>"Uncertainty and the Dynamics of Foreign Stock Holdings," with C. Giannitsarou, T. Haber and N. Schmitz, May 2024.</li>
+      <li>"<a href="https://drive.google.com/open?id=1V7qg1UWYE0Xrg13GBlDp4Lrqr63sf2-u" target="_blank" rel="noopener">The Unequal Effects of COVID-19 on Economists' Research Productivity</a>," with N. Amano-Patiño, C. Giannitsarou and Z. Hasna, May 2020 — website: <a href="https://sites.google.com/view/projectcaper/home" target="_blank" rel="noopener">Project CAPER</a>.</li>
+    </ul>
+
+    <h3 class="sub">Publications</h3>
+    <ul class="entries">
+      <li>"<a href="https://drive.google.com/file/d/1WRFWOOd7lu862FcRqALxuCu3NhMxfq-k/view?usp=share_link" target="_blank" rel="noopener">Economics Coauthorship in the Aftermath of MeToo</a>," with N. Amano-Patiño and C. Giannitsarou, <em>European Economic Review</em>, vol. 176, art. 105020, July 2025.</li>
+      <li>"<a href="https://drive.google.com/file/d/10W3xCgxNobFMXwNB15XtL8MRElj0H_35/view?usp=sharing" target="_blank" rel="noopener">Union Debt Management</a>," with J. Equiza-Goni and R. Oikonomou (<a href="https://drive.google.com/file/d/1k6G97PHIEZaCPs1QS7FAm-T-bku27GNo/view?usp=sharing" target="_blank" rel="noopener">online appendix</a>), <em>Journal of International Money and Finance</em>, vol. 132, art. 102747, February 2023.</li>
+      <li>"<a href="https://drive.google.com/file/d/1tnUoqLui8xslCPWG_A6Jwg12K-_PSGAv/view?usp=sharing" target="_blank" rel="noopener">Cross-Country Stock Market Comovement: a Macro Perspective</a>," with A. Anagnostopoulos, O. E. Atesagaoglu and C. Giannitsarou, <em>Journal of Monetary Economics</em>, vol. 130, pp. 34–48, September 2022.</li>
+      <li>"<a href="https://doi.org/10.1093/restud/rdy061" target="_blank" rel="noopener">Government Debt Management: the Long and the Short of It</a>," with A. Marcet, R. Oikonomou and A. Scott, <em>The Review of Economic Studies</em>, vol. 86, pp. 2554–2604, November 2019.</li>
+      <li>"<a href="http://onlinelibrary.wiley.com/doi/10.1111/ecoj.12015/abstract" target="_blank" rel="noopener">The Impact of Debt Levels and Debt Maturity on Inflation</a>," with A. Marcet, R. Oikonomou and A. Scott, <em>Economic Journal</em>, vol. 123, issue 566, pp. 164–192, February 2013.</li>
+      <li>"<a href="https://doi.org/10.1016/j.jmoneco.2010.08.005" target="_blank" rel="noopener">In Search of a Theory of Debt Management</a>," with A. Marcet and A. Scott, <em>Journal of Monetary Economics</em>, vol. 57, issue 7, pp. 821–836, October 2010.</li>
+      <li>"<a href="https://doi.org/10.1111/j.1538-4616.2010.00340.x" target="_blank" rel="noopener">Monetary Shocks in a Model with Skill Loss</a>," with J. Esteban-Pretel, <em>Journal of Money, Credit and Banking</em>, vol. 42, issue 7, pp. 1235–1265, October 2010.</li>
+      <li>"<a href="https://doi.org/10.1111/j.1468-0297.2007.02125.x" target="_blank" rel="noopener">Fiscal Insurance and Debt Management in OECD Economies</a>," with A. Marcet and A. Scott, <em>Economic Journal</em>, vol. 118, issue 525, pp. 363–386, March 2008.</li>
+    </ul>
+
+    <h3 class="sub">Chapters</h3>
+    <ul class="entries">
+      <li>"The Establishment of Subsidiaries in the European Union by British Firms," with M. Domenech Palacios and C. Giannitsarou, in <em>UK Regulation After Brexit Revisited</em>, H. Kassim, A. Jordan and S. Ennis (eds.), UK in a Changing Europe, October 2022.</li>
+      <li>"<a href="https://cepr.org/content/new-cepr-ebook-publishing-and-measuring-success-economics" target="_blank" rel="noopener">Who is Doing New Research in the Time of COVID-19? Not the Female Economists</a>," with N. Amano-Patiño, C. Giannitsarou and Z. Hasna, <em>CEPR eBook</em>, in Publishing and Measuring Success in Economics, pp. 137–142, September 2020.</li>
+      <li>"<a href="http://www.bis.org/publ/bppdf/bispap65k_rh.pdf" target="_blank" rel="noopener">Debt Management and Optimal Fiscal Policy with Long Bonds</a>," with A. Marcet and A. Scott, <em>BIS Paper Chapters</em>, in Threat of Fiscal Dominance, vol. 65, pp. 177–212, May 2012.</li>
+    </ul>
+
+    <h3 class="sub">Unpublished Papers</h3>
+    <ul class="entries">
+      <li>"<a href="https://drive.google.com/open?id=0B3RFReI-uVnJQVE5bUg2Y0JhM2s" target="_blank" rel="noopener">A Short Note on Optimal Debt Management under Asymmetric Information</a>," with A. Marcet, R. Oikonomou and A. Scott, July 2017.</li>
+      <li>"<a href="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxlbGlzYWZhcmFnbGlhcGFnZXxneDozODQ2YWM5ZDc3YjMyNzcx" target="_blank" rel="noopener">Long Term Government Bonds</a>," with A. Marcet, R. Oikonomou and A. Scott, June 2016 — previously circulated as "Modelling Long Bonds: The Case of Optimal Fiscal Policy," CEPR DP 9965.</li>
+    </ul>
+  </section>
+
+  <footer>
+    Elisa Faraglia · Faculty of Economics, University of Cambridge
+  </footer>
+
+</div>
+
+<script>
+  (function(){
+    var nav = document.getElementById('siteNav');
+    var hero = document.getElementById('about');
+    function onScroll(){
+      var threshold = hero.offsetTop + hero.offsetHeight - 56;
+      if (window.scrollY > threshold) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
+</body>
+</html>
